@@ -5,7 +5,16 @@ import (
 	"strings"
 )
 
+func plateFilter(rangeString string) bool {
+	return strings.Contains(rangeString, "AD")
+}
+
 func GetPlateListFromRangeString(rangeString string) ([]int, error) {
+
+	if !plateFilter(rangeString) {
+		return []int{}, nil
+	}
+
 	fullPlaterRange := strings.Split(strings.ReplaceAll(rangeString, "AD", ""), " ~ ")
 	var plateList []int
 	startPlate, err := strconv.Atoi(fullPlaterRange[0])

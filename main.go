@@ -2,8 +2,10 @@ package main
 
 import (
 	"D-plate-finder/search"
+	"fmt"
 )
 
 func main() {
-	search.SearchByPart(911)
+	hitPlateList := search.SearchByPart(911)
+	fmt.Printf("%v\n", hitPlateList)
 }
